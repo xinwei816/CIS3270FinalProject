@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1061.0" style="-fx-background-color: #f0ffff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ManageFlightController">
+   <children>
+      <Pane layoutY="97.0" prefHeight="604.0" prefWidth="1061.0" style="-fx-background-color: #7fffd4;">
+         <children>
+            <TableView fx:id="tableFlight" layoutY="179.0" prefHeight="429.0" prefWidth="1061.0">
+              <columns>
+                  <TableColumn fx:id="cfl" prefWidth="81.0" text="FlightId" />
+                  <TableColumn fx:id="cor" prefWidth="109.0" text="Orgins" />
+                  <TableColumn fx:id="cdes" prefWidth="112.0" text="Destination" />
+                  <TableColumn fx:id="cdm" prefWidth="109.0" text="DepartingMonth" />
+                  <TableColumn fx:id="cdd" prefWidth="104.0" text="DepartingDate" />
+                  <TableColumn fx:id="cdy" prefWidth="99.0" text="DepartingYear" />
+                  <TableColumn fx:id="cdt" prefWidth="118.0" text="DepartingTime" />
+                  <TableColumn fx:id="cad" prefWidth="102.0" text="ArringDate" />
+                  <TableColumn fx:id="cat" prefWidth="110.0" text="ArrivingTime" />
+                  <TableColumn fx:id="cpn" prefWidth="116.0" text="PassengerNum" />
+              </columns>
+            </TableView>
+            <JFXTextField fx:id="fi" layoutX="23.0" layoutY="64.0" maxWidth="122.0" minWidth="92.0" prefHeight="33.0" prefWidth="92.0" promptText="FightID" />
+            <JFXTextField fx:id="or" layoutX="108.0" layoutY="64.0" maxWidth="138.0" minWidth="92.0" prefHeight="33.0" prefWidth="92.0" promptText="Origins" />
+            <JFXTextField fx:id="des" layoutX="193.0" layoutY="64.0" maxWidth="176.0" minWidth="103.0" prefHeight="33.0" prefWidth="103.0" promptText="Destination" />
+            <JFXTextField fx:id="dm" layoutX="296.0" layoutY="64.0" maxWidth="130.0" minWidth="92.0" prefHeight="33.0" prefWidth="92.0" promptText="Dep.Month" />
+            <JFXTextField fx:id="dd" layoutX="382.0" layoutY="64.0" maxWidth="122.0" minWidth="92.0" prefHeight="33.0" prefWidth="92.0" promptText="Dep.Date" />
+            <JFXTextField fx:id="dy" layoutX="470.0" layoutY="64.0" maxWidth="122.0" minWidth="92.0" prefHeight="33.0" prefWidth="92.0" promptText="Dep.Year" />
+            <JFXTextField fx:id="dt" layoutX="562.0" layoutY="64.0" maxWidth="122.0" minWidth="92.0" prefHeight="33.0" prefWidth="92.0" promptText="Dep.Time" />
+            <JFXTextField fx:id="am" layoutX="648.0" layoutY="64.0" maxWidth="130.0" minWidth="92.0" prefHeight="33.0" prefWidth="92.0" promptText="Arr.Month" />
+            <JFXTextField fx:id="ad" layoutX="737.0" layoutY="64.0" maxWidth="122.0" minWidth="92.0" prefHeight="33.0" prefWidth="92.0" promptText="Arr.Date" />
+            <JFXTextField fx:id="at" layoutX="825.0" layoutY="64.0" maxWidth="122.0" minWidth="82.0" prefHeight="33.0" prefWidth="82.0" promptText="Arr.Time" />
+            <JFXTextField fx:id="pn" layoutX="905.0" layoutY="64.0" maxWidth="122.0" minWidth="82.0" prefHeight="33.0" prefWidth="110.0" promptText="PassengerNum" />
+            <Label fx:id="status" alignment="CENTER" contentDisplay="CENTER" layoutX="440.0" layoutY="14.0" prefHeight="19.0" prefWidth="163.0" textFill="DARKCYAN">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="763.0" layoutY="128.0" onAction="#Search" text="Search" textFill="DARKCYAN">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="830.0" layoutY="128.0" onAction="#update" text="Update" textFill="DARKCYAN">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="900.0" layoutY="128.0" onAction="#Add" text="Add" textFill="DARKCYAN">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="946.0" layoutY="128.0" onAction="#delete" text="Delete" textFill="DARKCYAN">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Label layoutX="465.0" layoutY="32.0" prefHeight="38.0" prefWidth="149.0" text="Manage Flight" textFill="DARKCYAN">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtuser" layoutX="101.0" layoutY="39.0" prefHeight="21.0" prefWidth="122.0" text="User" textFill="DARKCYAN">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="889.0" layoutY="36.0" onAction="#backToAdminmenu" text="Back to Main Menu" textFill="DARKCYAN">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="34.0" layoutY="39.0" prefHeight="21.0" prefWidth="67.0" text="Admin" textFill="DARKCYAN">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
