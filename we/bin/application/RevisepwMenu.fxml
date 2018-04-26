@@ -29,7 +29,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
-            <Label fx:id="labstats" alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="94.0" prefHeight="17.0" prefWidth="188.0" text="status" textFill="#077c6d" />
+            <Label fx:id="labstats" alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="94.0" prefHeight="17.0" prefWidth="188.0" textFill="#077c6d" />
          </children>
       </Pane>
       <JFXButton layoutX="528.0" layoutY="491.0" onAction="#backToLogin2" text="Back to Login" textFill="#056155">

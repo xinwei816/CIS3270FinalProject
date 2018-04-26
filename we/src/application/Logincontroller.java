@@ -12,26 +12,40 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Driver;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
-public class Logincontroller {
+public class Logincontroller implements Initializable {
 	@FXML
 	private Label txtStatus;
 	@FXML
 	private TextField txtUser;
 	@FXML
 	private TextField txtPw;
+	@FXML
+	private AnchorPane root;
+	
 	
 	Driver 	driver= new Driver();
 	Connection connection= Driver.Connector();
 	
-
+	@Override
+	public void initialize(URL location,ResourceBundle resource) {
+		//* check if spashscreen is loaded or not 
+		if(!Main.isSplashLoader) {
+		loadSplashScreen();
+		}
+		
+	}
 	
 	public void Login(ActionEvent event) throws Exception {
 		
@@ -111,6 +125,55 @@ public class Logincontroller {
 			e.printStackTrace();
 		}
 	}
+	
+	public void loadSplashScreen() {
+		
+		try {
+			// after initialze,set it to ture, which means  splash screen will be load only once
+			Main.isSplashLoader = true;
+			
+			StackPane pane =  FXMLLoader.load(getClass().getResource("/application/SplashScreen.fxml"));
+			root.getChildren().setAll(pane);
+			
+			
+			FadeTransition fadeIn= new FadeTransition(Duration.seconds(2),pane);
+			fadeIn.setFromValue(0);
+			fadeIn.setToValue(1);
+			fadeIn.setCycleCount(1);
+			
+			FadeTransition fadeOut= new FadeTransition(Duration.seconds(2),pane);
+			fadeOut.setFromValue(0);
+			fadeOut.setToValue(1);
+			fadeOut.setCycleCount(1);
+			
+			fadeIn.play();
+			
+			fadeIn.setOnFinished((e)->{
+				fadeOut.play();
+				
+				
+			});
+			fadeOut.setOnFinished((e)->{
+				try {
+					AnchorPane parent=FXMLLoader.load(getClass().getResource("/application/Login.fxml"));
+					root.getChildren().setAll(parent);
+					
+				}
+				catch(Exception ex) {
+					
+				}
+			});
+			
+			
+			
+		}
+		catch(Exception e) {
+			
+		}
+	}
+	
+	
+	
 	public void registerPage(ActionEvent event) throws Exception {
 		
 		//* go to register page
